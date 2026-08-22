@@ -199,7 +199,7 @@ $interested_users_count = mysqli_num_rows($result_4);
     </div>
 
     <div class="property-amenities">
-        <div class="page-container">
+        <div class="section-card">
             <h1>Amenities</h1>
             <div class="row justify-content-between">
                 <div class="col-md-auto">
@@ -269,13 +269,15 @@ $interested_users_count = mysqli_num_rows($result_4);
         </div>
     </div>
 
-    <div class="property-about page-container">
+    <div class="property-about">
+        <div class="section-card">
         <h1>About the Property</h1>
         <p><?= $property['description'] ?></p>
+        </div>
     </div>
 
     <div class="property-rating">
-        <div class="page-container">
+        <div class="section-card">
             <h1>Property Rating</h1>
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-6">
@@ -394,7 +396,8 @@ $interested_users_count = mysqli_num_rows($result_4);
         </div>
     </div>
 
-    <div class="property-testimonials page-container">
+    <div class="property-testimonials">
+        <div class="section-card">
         <h1>What people say</h1>
         <?php
         foreach ($testimonials as $testimonial) {
@@ -412,6 +415,7 @@ $interested_users_count = mysqli_num_rows($result_4);
         <?php
         }
         ?>
+        </div>
     </div>
 
     <?php
