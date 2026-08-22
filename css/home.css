@@ -1,0 +1,67 @@
+/* Home Page Styles */
+
+/* Banner Styling */
+.banner-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    width: 100%;
+}
+
+.banner-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Search Bar Styling */
+.search-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input-group {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-input {
+    border: none;
+    font-size: 1rem;
+    padding-left: 20px;
+}
+
+.search-input:focus {
+    box-shadow: none;
+}
+
+.btn-search {
+    background-color: #111111;
+    border: none;
+    padding: 0 25px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-search:hover {
+    background-color: #ffc107;
+    color: #111111 !important;
+}
+
+/* City Cards Styling */
+.city-card-wrapper {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.city-card-wrapper:hover {
+    transform: scale(1.1); /* Hover karne par card halka sa zoom hoga */
+}
+
+.city-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
