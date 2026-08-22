@@ -10,14 +10,14 @@ $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 $result = mysqli_query($conn, $sql);
 
 if (!$result) {
-    echo "Something went wrong!";
+    echo json_encode(array("success" => false, "message" => "Something went wrong!"));
     exit;
 }
 
 $row_count = mysqli_num_rows($result);
 
 if ($row_count == 0) {
-    echo "Invalid Email or Password!";
+    echo json_encode(array("success" => false, "message" => "Invalid Email or Password!"));
     exit;
 }
 
@@ -28,5 +28,5 @@ $_SESSION['full_name'] = $user['full_name'];
 
 mysqli_close($conn);
 
-header("location: ../index.php");
+echo json_encode(array("success" => true, "message" => "Login successful!"));
 ?>
