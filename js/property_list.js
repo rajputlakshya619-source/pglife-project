@@ -1,4 +1,40 @@
 window.addEventListener("load", function () {
+    var filterBar = document.querySelector(".filter-bar");
+    var sortButtons = filterBar ? filterBar.querySelectorAll(".col-auto") : [];
+    var pageContainer = document.querySelector(".page-container");
+
+    function getRent(card) {
+        var rentEl = card.querySelector(".rent");
+        if (!rentEl) return 0;
+        return parseFloat(rentEl.textContent.replace(/[^\d]/g, "")) || 0;
+    }
+
+    function sortCards(order) {
+        var cards = Array.from(document.querySelectorAll(".property-card"));
+        cards.sort(function (a, b) {
+            return order === "asc" ? getRent(a) - getRent(b) : getRent(b) - getRent(a);
+        });
+        cards.forEach(function (card) { pageContainer.appendChild(card); });
+    }
+
+    sortButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            var text = btn.querySelector("span") ? btn.querySelector("span").textContent.trim() : "";
+            if (text === "Highest rent first") {
+                sortCards("desc");
+                sortButtons.forEach(function (b) { b.style.background = ""; b.style.color = ""; });
+                btn.style.background = "#f0f0ff";
+                btn.style.color = "#667eea";
+            } else if (text === "Lowest rent first") {
+                sortCards("asc");
+                sortButtons.forEach(function (b) { b.style.background = ""; b.style.color = ""; });
+                btn.style.background = "#f0f0ff";
+                btn.style.color = "#667eea";
+            }
+        });
+    });
+
+
     var is_interested_images = document.getElementsByClassName("is-interested-image");
     Array.from(is_interested_images).forEach(element => {
         element.addEventListener("click", function (event) {
